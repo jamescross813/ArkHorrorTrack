@@ -1,4 +1,15 @@
 <%= form_for @gamecharacter do |f| %>
+
+<% if @gamecharacter.errors.any? %>
+        <div id = "error_explanation">
+            <h3>There are some errors</h3>
+            <ul>
+                <% @gamecharacter.errors.full_messages.each do |mess| %>
+                    <li><%= mess %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
 <%= f.hidden_field :game_id %>
 <br>
 
