@@ -14,7 +14,7 @@
     <% @game.scenarios.each do |scen| %>
         
         <li>
-        <%= link_to scen.name, game_scenario_path(@game, scen) %><br>
+        <%= link_to scen.title, game_scenario_path(@game, scen) %><br>
         
         </li>
     <% end %>
