@@ -3,6 +3,9 @@ class Game < ApplicationRecord
   has_many :characters
   has_many :character_bases, through: :characters
   has_many :scenarios
+
+  validates :title, presence:true
+
   accepts_nested_attributes_for :scenarios
   
   
