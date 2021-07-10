@@ -1,7 +1,9 @@
 <h1>Scenarios in progress</h1>
+
 <ul>
-<% @scenarios.incomplete.each do |incomp| %>
-<li>
-<%= link_to incomp.name, game_scenario_path(incomp.game_id, incomp)%>
+    <% @scenarios.incomplete.each do |incomp| %>
+        <li>
+            <%= link_to incomp.name, game_scenario_path(incomp.game_id, incomp)%>
+        </li>
 </ul>
 <% end %>
