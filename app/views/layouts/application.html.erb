@@ -11,9 +11,11 @@
   </head>
 
   <body>
+
     <%= yield %>
+    
     <% if session[:user_id] %>
-      <%= button_to 'LogOut', logout_path, method: :delete %>
+      <%= button_to 'Log Out', logout_path, method: :post %>
       <% end %>
   </body>
 </html>
