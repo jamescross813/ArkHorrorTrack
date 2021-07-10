@@ -1,16 +1,10 @@
+<% if @gamecharacter.is_mine?(session, @gamecharacter.id)%>
 <h1>Edit character info</h2>
-
-<%= form_for @gamecharacter do |f| %>
-
-
-<%= f.label :health %>
-<%= f.text_field :health %>
-<%= f.label :sanity %>
-<%= f.text_field :sanity %>
-<%= f.label :victory_points_gained %>
-<%= f.text_field :victory_points_gained %>
-<%= f.label :victory_points_used %>
-<%= f.text_field :victory_points_used %>
 <%= render 'form' %>
+<% else %>
+<h1>You do not have permission to do this, try again</h1>
+
 
 <% end %>
+
+<%= link_to "User Homepage", user_path(@user) %><br>

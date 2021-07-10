@@ -1,4 +1,6 @@
-<h1>character show page</h1>
+<% if @gamecharacter.is_mine?(session, @game.id)%>
+
+<h1>@char.name</h1>
 <%= render 'character_bases/show' %><br>
 
 Health: <%= @char.health %><br>
@@ -7,3 +9,8 @@ Victory Points Gained: <%= @char.victory_points_gained %><br>
 Victory Points Used: <%= @char.victory_points_used %><br>
 
 <%= link_to "Edit Character", edit_game_character_path(@char.game_id, @char)%>
+<% else %>
+<h1>You do not have permission to do this, try again</h1>
+<%= link_to "User Homepage", user_path(@user) %><br>
+
+<% end %>
