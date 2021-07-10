@@ -23,6 +23,12 @@ class CharactersController < ApplicationController
         redirect_to game_character_path(@character.game_id, @character)
     end
 
+    def show
+        @char = Character.find(params[:id])
+        
+        @character = CharacterBase.find(@char.character_base_id) 
+    end
+
     private 
 
     def character_params
