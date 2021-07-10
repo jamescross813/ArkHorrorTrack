@@ -6,10 +6,7 @@ class CharactersController < ApplicationController
 
     def create 
         @gamecharacter = Character.new(character_params)
-        @gamecharacter.health = @gamecharacter.character_base.health
-        @gamecharacter.sanity = @gamecharacter.character_base.sanity
-        @gamecharacter.victory_points_gained = 0
-        @gamecharacter.victory_points_used = 0
+        @gamecharacter.new_character_stats
         @gamecharacter.save
         redirect_to game_character_path(@gamecharacter.game_id, @gamecharacter)
     end
