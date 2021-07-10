@@ -13,8 +13,8 @@ user_two = User.create(username: "Jason", password: "1234")
 game_one = Game.create(title: "Dunwich Legacy", user_id: 1)
 game_two = Game.create(title: "The Path to Carcosa", user_id: 2)
 
-scenario_one = Scenario.create(name: "Blood on the Altar", game_id: 1)
-scenario_two = Scenario.create(name: "Echoes of the Past", game_id: 2)
+scenario_one = Scenario.create(title: "Blood on the Altar", game_id: 1)
+scenario_two = Scenario.create(title: "Echoes of the Past", game_id: 2)
 
 character_base_pete = CharacterBase.create(name: "Ashcan Pete", title: "The Drifter", health: 6, sanity: 5, willpower: 4, intellect: 2, combat: 2, agility: 2, category: "Survivor")
 character_base_skids = CharacterBase.create(name: "Skids O'Toole", title: "The Ex-con", health: 8, sanity: 6, willpower: 2, intellect: 3, combat: 3, agility: 4, category: "Rogue")
