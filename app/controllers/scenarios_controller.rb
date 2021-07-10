@@ -13,6 +13,16 @@ class ScenariosController < ApplicationController
         end
     end
 
+    def edit
+        @scenario = Scenario.find(params[:id])
+    end
+
+    def update
+        @scenario = Scenario.find(params[:id])
+        @scenario.update(scenario_params)
+        redirect_to game_scenario_path(@scenario.game_id, @scenario)
+    end
+
     private 
 
     def scenario_params
