@@ -13,6 +13,16 @@ class CharactersController < ApplicationController
         end
     end
 
+    def edit
+        @gamecharacter = Character.find(params[:id])
+    end
+
+    def update
+        @character = Character.find(params[:id])
+        @character.update(character_params)
+        redirect_to game_character_path(@character.game_id, @character)
+    end
+
     private 
 
     def character_params
