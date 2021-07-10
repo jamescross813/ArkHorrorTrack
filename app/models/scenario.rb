@@ -8,4 +8,12 @@ class Scenario < ApplicationRecord
     where(completion_status: false)
    end
 
+   def is_complete?
+    if self.completion_status == true
+      "Complete"
+    else 
+      "Incomplete"
+    end
+  end
+
 end
