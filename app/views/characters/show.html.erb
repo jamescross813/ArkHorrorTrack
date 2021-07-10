@@ -1,0 +1,9 @@
+<h1>character show page</h1>
+<%= render 'character_bases/show' %><br>
+
+Health: <%= @char.health %><br>
+Sanity: <%= @char.sanity %><br>
+Victory Points Gained: <%= @char.victory_points_gained %><br>
+Victory Points Used: <%= @char.victory_points_used %><br>
+
+<%= link_to "Edit Character", edit_game_character_path(@char.game_id, @char)%>
