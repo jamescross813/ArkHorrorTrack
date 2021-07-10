@@ -1,14 +1,12 @@
-<h2>Add scenario:</h1>
-
-    <%= f.fields_for :scenarios, @game.scenarios.build do |scen| %>
-
-        <%= scen.label :title %>
-        <%= scen.text_field :title %><br>
-        <%= scen.label :order_number %>
-        <%= scen.text_field :order_number %><br>
-        <%= scen.label :run_number %>
-        <%= scen.text_field :run_number %><br>
-        <%= scen.label :complete? %>
-        <%= scen.check_box :completion_status %><br>
-
-    <% end %>
+<%= form_for @scenario do |f| %>
+    <%= f.hidden_field :game_id %>
+    <%= f.label :name %>
+    <%= f.text_field :name %><br>
+    <%= f.label :order_number %>
+    <%= f.text_field :order_number %><br>
+    <%= f.label :complete? %>
+    <%= f.check_box :completion_status %><br>
+    <%= f.label :run_number %>
+    <%= f.text_field :run_number %><br>
+    <%= f.submit %>
+<% end %>
