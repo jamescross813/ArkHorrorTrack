@@ -1,4 +1,4 @@
 class Character < ApplicationRecord
   belongs_to :game
-  belongs_to :chracter_base
+  belongs_to :character_base
 end

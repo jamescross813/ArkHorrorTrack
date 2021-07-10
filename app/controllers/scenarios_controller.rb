@@ -24,6 +24,7 @@ class ScenariosController < ApplicationController
     end
 
     def show
+        binding.pry
         @scenario = Scenario.find(params[:id])
     end
 
@@ -34,6 +35,6 @@ class ScenariosController < ApplicationController
     private 
 
     def scenario_params
-        params.require(:scenario).permit(:name, :order_number, :completion_status, :game_id, :run_number)
+        params.require(:scenario).permit(:title, :order_number, :completion_status, :game_id, :run_number)
     end
 end
