@@ -2,7 +2,7 @@
 
   
  <h2> Order Number: <%= @game.order %></h2>
-
+<h3>Characters:</h3>
     <% @game.characters.each do |char| %>
     
     <li>
@@ -10,7 +10,7 @@
     
     </li>
     <% end %>
-
+<h3>Scenarios:</h3>
     <% @game.scenarios.each do |scen| %>
         
         <li>
