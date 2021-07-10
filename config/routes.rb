@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :character_bases
   resources :users
   resources :scenarios
   resources :notes
