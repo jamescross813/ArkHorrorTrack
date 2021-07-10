@@ -23,6 +23,16 @@ class NotesController < ApplicationController
         redirect_to note_path
     end
 
+    def show
+        @note = Note.find(params[:id])
+        @scenario = @note.scenario_id
+    end
+
+    def index
+        @scenario = Scenario.find(current_scenario)
+        @notes = @scenario.notes
+    end
+
     private
 
     def note_params
