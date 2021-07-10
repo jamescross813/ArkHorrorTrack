@@ -5,12 +5,10 @@ class CharactersController < ApplicationController
     end
 
     def create 
-        @character = Character.new(character_params)
-        if @character.save 
-           redirect_to game_character_path(@character.game_id, @character)
-        else 
-            render :new
-        end
+        @gamecharacter = Character.new(character_params)
+        # binding.pry
+        @gamecharacter.save
+        redirect_to game_character_path(@gamecharacter.game_id, @gamecharacter)
     end
 
     def edit
@@ -18,14 +16,17 @@ class CharactersController < ApplicationController
     end
 
     def update
-        @character = Character.find(params[:id])
-        @character.update(character_params)
-        redirect_to game_character_path(@character.game_id, @character)
+        @gamecharacter = Character.find(params[:id])
+        if @game.valid?
+            @gamecharacter.update(character_params)
+            redirect_to game_character_path(@gamecharacter.game_id, @gamecharacter)
+        else
+            render :new
+        end
     end
 
     def show
         @char = Character.find(params[:id])
-        
         @character = CharacterBase.find(@char.character_base_id) 
     end
 
