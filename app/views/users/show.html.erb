@@ -6,7 +6,7 @@
 
   <% @user.games.each do |game| %>
     <li>
-    
+      <% @user.games.order_number %>
       <%= link_to game.title, user_game_path(@user, game) %><br>
     </li>
   <% end %>
