@@ -20,4 +20,11 @@ class Game < ApplicationRecord
       self.order(:order)
     end
 
+    def self.is_mine?(session, game)
+      @user = User.find(session[:user_id])
+      @game = Game.find(game)
+      if @game.user_id == @user.id 
+      end
+    end
+
 end
