@@ -1,0 +1,7 @@
+<h1>Add an Invesigator to your game:</h1>
+
+<%= form_for @gamecharacter do |f| %>
+
+    <%= f.select :character_base_id, options_from_collection_for_select(CharacterBase.all, :id, :name)%><br>
+    <%= render 'form' %>    
+<% end %>
