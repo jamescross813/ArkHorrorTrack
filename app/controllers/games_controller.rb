@@ -14,6 +14,16 @@ class GamesController < ApplicationController
         end
     end
 
+    def show
+        @game = Game.find(params[:id])
+        @user = @game.user_id
+    end
+
+    def index
+        @user = User.find(current_user)
+        @games = @user.games
+    end
+
     def game_params
         params.require(:game).permit(:title, :order, :user_id, :scenario_ids => [], :scenarios_attributes=> [:title,
                                                                                                             :order_number,
