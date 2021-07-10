@@ -13,6 +13,11 @@ class CharactersController < ApplicationController
 
     def edit
         @gamecharacter = Character.find(params[:id])
+        if @gamecharacter.is_mine?(params)
+            render :edit
+        else
+            render :'application/failure'
+        end
     end
 
     def update
@@ -22,9 +27,9 @@ class CharactersController < ApplicationController
     end
 
     def show
-        @char = Character.find(params[:id])
-        @character = CharacterBase.find(@char.character_base_id) 
-        if @character.is_mine?(params)
+        @char = Character.exists?(params)
+        if !@char.nil? && @char.is_mine?(params)
+            @character = CharacterBase.find(@char.character_base_id)
             render :show
         else
             render :'application/failure'

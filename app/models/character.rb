@@ -12,12 +12,18 @@ class Character < ApplicationRecord
   end
 
   def is_mine?(params)
-    @user = User.find(params[:user_id])
-    @character = Character.find(params[:id])
-    if @character.user_id == @user.id 
+    @character = Character.find_by(params[:id])
+    @game = Game.find(params[:game_id])
+    if @character.game_id == @game.id 
       @character
     end
   end
 
+  def self.exists?(params)
+    if Character.find_by(id:params[:id]) 
+      @char = Character.find(params[:id])
+      
+    end
+  end
   
 end

@@ -1,10 +1,2 @@
-<% if @gamecharacter.is_mine?(session, @gamecharacter.id)%>
 <h1>Edit character info</h2>
 <%= render 'form' %>
-<% else %>
-<h1>You do not have permission to do this, try again</h1>
-
-
-<% end %>
-
-<%= link_to "User Homepage", user_path(@user) %><br>
