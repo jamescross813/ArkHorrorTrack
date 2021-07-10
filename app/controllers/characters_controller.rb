@@ -24,6 +24,11 @@ class CharactersController < ApplicationController
     def show
         @char = Character.find(params[:id])
         @character = CharacterBase.find(@char.character_base_id) 
+        if @character.is_mine?(params)
+            render :show
+        else
+            render :'application/failure'
+        end
     end
 
     private 

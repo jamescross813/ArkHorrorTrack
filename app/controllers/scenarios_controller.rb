@@ -24,8 +24,12 @@ class ScenariosController < ApplicationController
     end
 
     def show
-        
         @scenario = Scenario.find(params[:id])
+        if @scenario.is_mine?(params)
+            render :show
+        else
+            render :'application/failure'
+        end
     end
 
     def index

@@ -26,6 +26,11 @@ class NotesController < ApplicationController
     def show
         @note = Note.find(params[:id])
         @scenario = @note.scenario_id
+        if @note.is_mine?(params)
+            render :show
+        else
+            render :'application/failure'
+        end
     end
 
     def index

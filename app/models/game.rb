@@ -24,6 +24,7 @@ class Game < ApplicationRecord
       @user = User.find(params[:user_id])
       @game = Game.find(params[:id])
       if @game.user_id == @user.id 
+        @game
       end
     end
 

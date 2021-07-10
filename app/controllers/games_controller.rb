@@ -31,7 +31,7 @@ class GamesController < ApplicationController
         if @game.is_mine?(params)
             render :show
         else
-            redirect_to 'application/failure'
+            render :'application/failure'
         end
     end
 
