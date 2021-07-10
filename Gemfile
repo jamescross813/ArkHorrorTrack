@@ -47,7 +47,6 @@ group :development do
   gem 'omniauth-facebook'
   gem "omniauth-rails_csrf_protection"
   gem 'thin'
-  gem 'devise'
 end
 
 group :test do
