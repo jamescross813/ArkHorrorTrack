@@ -1,4 +1,20 @@
+<h1><%= @user.username %></h1>
 
+<h2> Games:</h2>
+
+<ul>
+
+  <% @user.games.each do |game| %>
+  <li>
+    <% @user.games.order_number %>
+      <%= link_to game.title, user_game_path(@user, game) %><br>
+    </li>
+  <% end %>
+
+</ul>
+
+<%= link_to "Add Game", new_user_game_path(@user) %><br>
+<%= link_to 'Edit User', edit_user_path(@user) %>
 
  
 
