@@ -28,14 +28,14 @@ ActiveRecord::Schema.define(version: 2021_07_10_064504) do
 
   create_table "characters", force: :cascade do |t|
     t.integer "game_id", null: false
-    t.integer "chracter_base_id", null: false
+    t.integer "character_base_id", null: false
     t.integer "victory_points_gained"
     t.integer "victory_points_used"
     t.integer "health"
     t.integer "sanity"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["chracter_base_id"], name: "index_characters_on_chracter_base_id"
+    t.index ["character_base_id"], name: "index_characters_on_character_base_id"
     t.index ["game_id"], name: "index_characters_on_game_id"
   end
 
@@ -75,7 +75,7 @@ ActiveRecord::Schema.define(version: 2021_07_10_064504) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "characters", "chracter_bases", column: "chracter_base_id"
+  add_foreign_key "characters", "character_bases", column: "character_base_id"
   add_foreign_key "characters", "games"
   add_foreign_key "games", "users"
   add_foreign_key "notes", "scenarios"
