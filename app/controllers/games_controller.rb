@@ -17,6 +17,11 @@ class GamesController < ApplicationController
 
     def edit
         @game = Game.find(params[:id])
+        if @game.is_mine?(params)
+            render :edit
+        else
+            render :'application/failure'
+        end
     end
 
     def update

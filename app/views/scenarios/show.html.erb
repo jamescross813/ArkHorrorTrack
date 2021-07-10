@@ -1,4 +1,3 @@
-<% if @scenario.is_mine?(session, @scenario.id)%>
 <h1><%= @scenario.title.capitalize %></h1>
 
 <h3>Order Number: <%= @scenario.order_number %></h3>
@@ -11,10 +10,3 @@
 <%= link_to "incomplete scenarios", game_scenarios_path(@scenario.game_id, @scenario)%>
 
 
-<% else %>
-<h1>You do not have permission to do this, try again</h1>
-
-
-<% end %>
-
-<%= link_to "User Homepage", user_path(@user) %><br>

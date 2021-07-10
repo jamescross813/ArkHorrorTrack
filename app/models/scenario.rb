@@ -16,10 +16,12 @@ class Scenario < ApplicationRecord
     end
   end
 
-  def self.is_mine?(params)
-    @user = User.find(params[:user_id])
+  def is_mine?(params)
     @scenario = Scenario.find(params[:id])
-    if @scenario.user_id == @user.id 
+    @game = Game.find(params[:game_id])
+    @user = User.find(@game.user_id)
+    if @scenario.game_id == @game.id && @user == current_user
+      @scenario
     end
   end
 

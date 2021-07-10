@@ -1,11 +1,2 @@
-<% if @scenario.is_mine?(session, @scenario.id)%>
 <h1>Edit Scenario:</h1>
 <%= render 'form' %>
-
-<% else %>
-<h1>You do not have permission to do this, try again</h1>
-
-
-<% end %>
-
-<%= link_to "User Homepage", user_path(@user) %><br>

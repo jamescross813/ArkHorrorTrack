@@ -15,6 +15,11 @@ class ScenariosController < ApplicationController
 
     def edit
         @scenario = Scenario.find(params[:id])
+        if @scenario.is_mine?(params)
+            render :edit
+        else
+            render :'application/failure'
+        end
     end
 
     def update
@@ -25,6 +30,7 @@ class ScenariosController < ApplicationController
 
     def show
         @scenario = Scenario.find(params[:id])
+        @game = Game.find(params[:game_id])
         if @scenario.is_mine?(params)
             render :show
         else
