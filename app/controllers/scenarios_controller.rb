@@ -24,7 +24,7 @@ class ScenariosController < ApplicationController
     end
 
     def show
-        binding.pry
+        
         @scenario = Scenario.find(params[:id])
     end
 
