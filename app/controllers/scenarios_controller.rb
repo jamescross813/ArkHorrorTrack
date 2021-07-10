@@ -23,6 +23,14 @@ class ScenariosController < ApplicationController
         redirect_to game_scenario_path(@scenario.game_id, @scenario)
     end
 
+    def show
+        @scenario = Scenario.find(params[:id])
+    end
+
+    def index
+        @scenarios = Scenario.all
+    end
+
     private 
 
     def scenario_params
