@@ -1,6 +1,8 @@
 <h1><%= @note.title %></h1>
 <p><%= @note.content %></p>
 
-<%= link_to "game page", game_scenario_path(@note.scenario.game, @note.scenario) %>
+
+<%= link_to "game page", game_path(@note.scenario.game) %><br>
+<%= link_to "scenario page", game_scenario_path(@note.scenario.game, @note.scenario) %><br>
 
 <%= link_to "homepage", user_path %>
