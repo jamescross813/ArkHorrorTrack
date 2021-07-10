@@ -1,7 +1,7 @@
 <h1><%= @game.title%></h1>
 
   
- <h2> <%= @game.order %></h2>
+ <h2> Order Number: <%= @game.order %></h2>
 
     <% @game.characters.each do |char| %>
     
@@ -19,7 +19,7 @@
         </li>
     <% end %>
 
-<%= link_to "user", user_path(@user) %><br>
+<%= link_to "User Homepage", user_path(@user) %><br>
 
 <%= link_to "Edit Game", edit_user_game_path(@user) %><br><br>
 
