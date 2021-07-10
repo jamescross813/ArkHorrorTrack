@@ -13,6 +13,8 @@ class Game < ApplicationRecord
       end
     end
 
-    
+    def self.order_number
+      self.order(:order)
+    end
 
 end
