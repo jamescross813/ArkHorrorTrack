@@ -1,0 +1,10 @@
+<h1><%= @scenario.name.capitalize %></h1>
+
+Order Number: <%= @scenario.order_number %><br>
+Complete? <%= @scenario.completion_status %><br>
+Run Number: <%= @scenario.run_number %><br>
+
+
+<%= link_to "Edit Scenario", edit_game_scenario_path(@scenario.game_id, @scenario) %><br>
+<%= link_to "Add Note", new_scenario_note_path(@scenario) %><br>
+<%= link_to "incomplete scenarios", game_scenarios_path(@scenario.game_id, @scenario)%>
