@@ -17,13 +17,8 @@ class CharactersController < ApplicationController
 
     def update
         @gamecharacter = Character.find(params[:id])
-        if @gamecharacter.valid?
-            @gamecharacter.update(character_params)
-            redirect_to game_character_path(@gamecharacter.game_id, @gamecharacter)
-        else
-            render :edit
-            :message
-        end
+        @gamecharacter.update(character_params)
+        redirect_to game_character_path(@gamecharacter.game_id, @gamecharacter)
     end
 
     def show
