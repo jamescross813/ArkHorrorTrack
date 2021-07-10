@@ -1,12 +1,5 @@
-<% if @note.is_mine?(session, @note.id)%>
 <<h1>Edit Note</h1>
 <%= render 'form' %>
-<% else %>
-<h1>You do not have permission to do this, try again</h1>
 
-
-<% end %>
-
-<%= link_to "User Homepage", user_path(@user) %><br>
 
 

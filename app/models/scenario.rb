@@ -17,7 +17,7 @@ class Scenario < ApplicationRecord
   end
 
   def self.is_mine?(session, scenario)
-    @user = User.find(session[:user_id])
+    @user = User.find(session)
     @scenario = Scenario.find(game)
     if @scenario.user_id == @user.id 
     end

@@ -12,7 +12,7 @@ class Character < ApplicationRecord
   end
 
   def self.is_mine?(session, character)
-    @user = User.find(session[:user_id])
+    @user = User.find(session)
     @character = Character.find(game)
     if @character.user_id == @user.id 
     end

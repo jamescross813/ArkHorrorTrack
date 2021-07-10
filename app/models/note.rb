@@ -5,7 +5,7 @@ class Note < ApplicationRecord
   validates :content, length: {minimum: 15} 
   
   def self.is_mine?(session, note)
-    @user = User.find(session[:user_id])
+    @user = User.find(session)
     @note = Note.find(note)
     if @note.user_id == @user.id 
     end

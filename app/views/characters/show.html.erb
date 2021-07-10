@@ -1,4 +1,4 @@
-<% if @gamecharacter.is_mine?(session, @game.id)%>
+<% if @gamecharacter.is_mine?(session, @gamecharacter.id)%>
 
 <h1>@char.name</h1>
 <%= render 'character_bases/show' %><br>

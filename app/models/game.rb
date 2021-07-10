@@ -20,9 +20,9 @@ class Game < ApplicationRecord
       self.order(:order)
     end
 
-    def self.is_mine?(session, game)
-      @user = User.find(session[:user_id])
-      @game = Game.find(game)
+    def is_mine?(params)
+      @user = User.find(params[:user_id])
+      @game = Game.find(params[:id])
       if @game.user_id == @user.id 
       end
     end

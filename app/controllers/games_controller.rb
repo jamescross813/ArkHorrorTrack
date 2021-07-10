@@ -28,6 +28,11 @@ class GamesController < ApplicationController
     def show
         @game = Game.find(params[:id])
         @user = @game.user_id
+        if @game.is_mine?(params)
+            render :show
+        else
+            redirect_to 'application/failure'
+        end
     end
 
     def index
