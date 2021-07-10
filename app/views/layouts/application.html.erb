@@ -12,5 +12,8 @@
 
   <body>
     <%= yield %>
+    <% if session[:user_id] %>
+      <%= button_to 'LogOut', logout_path, method: :delete %>
+      <% end %>
   </body>
 </html>
