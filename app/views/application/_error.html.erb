@@ -1,8 +1,8 @@
-<% if @user.errors.any? %>
+<% if error_variable.errors.any? %>
         <div id = "error_explanation">
             <h3>There are some errors</h3>
             <ul>
-                <% @user.errors.full_messages.each do |mess| %>
+                <% error_variable.errors.full_messages.each do |mess| %>
                     <li><%= mess %></li>
                 <% end %>
             </ul>
