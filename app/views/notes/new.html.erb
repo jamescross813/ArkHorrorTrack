@@ -1,3 +1,4 @@
 <h1>Create New Note</h1>
 
 <%= render 'form' %>
+<%= render partial: 'application/error', locals: {error_variable: @note} %>
