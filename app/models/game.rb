@@ -21,6 +21,7 @@ class Game < ApplicationRecord
     end
 
     def is_mine?(params)
+      # binding.pry
       @user = User.find(params[:user_id])
       @game = Game.find(params[:id])
       if @game.user_id == @user.id 
