@@ -4,8 +4,10 @@
     <h3>Complete? <%= @scenario.is_complete? %></h3>
     <h3>Run Number: <%= @scenario.run_number %></h3>
 
-<%= link_to "Edit Scenario", edit_game_scenario_path(@scenario.game_id, @scenario) %><br>
-<%= link_to "Add Note", new_scenario_note_path(@scenario) %><br>
-<%= link_to "incomplete scenarios", game_scenarios_path(@scenario.game_id, @scenario)%>
 
+<nav>
+    <%= link_to "Edit Scenario", edit_game_scenario_path(@scenario.game_id, @scenario) %>
+    <%= link_to "Add Note", new_scenario_note_path(@scenario) %>
+    <%= link_to "Incomplete Scenarios", game_scenarios_path(@scenario.game_id, @scenario)%>
+</nav>
 

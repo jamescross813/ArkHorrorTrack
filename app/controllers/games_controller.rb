@@ -26,13 +26,13 @@ class GamesController < ApplicationController
 
     def update
         @game = Game.find(params[:id])
-            @game.update(game_params)
-            redirect_to game_path
+        @game.update(game_params)
+        redirect_to user_game_path(@game.user_id, @game)
     end
 
     def show
         @game = Game.find(params[:id])
-        @user = @game.user_id
+        @user = User.find(params[:user_id])
         if @game.is_mine?(params) 
             render :show
         else
