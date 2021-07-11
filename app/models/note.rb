@@ -5,9 +5,9 @@ class Note < ApplicationRecord
   validates :content, length: {minimum: 15} 
   
   def is_mine?(params)
-    @user = User.find(params[:user_id])
     @note = Note.find(params[:id])
-    if @note.user_id == @user.id 
+    @scenario = Scenario.find(params[:scenario_id])
+    if @note.scenario_id == @scenario.id
       @note
     end
   end

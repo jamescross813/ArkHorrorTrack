@@ -15,6 +15,11 @@ class NotesController < ApplicationController
 
     def edit
         @note = Note.find(params[:id])
+        if @note.is_mine?(params)
+            render :show
+        else
+            render :'application/failure'
+        end
     end
 
     def update

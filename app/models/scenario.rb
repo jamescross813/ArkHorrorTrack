@@ -19,8 +19,7 @@ class Scenario < ApplicationRecord
   def is_mine?(params)
     @scenario = Scenario.find(params[:id])
     @game = Game.find(params[:game_id])
-    @user = User.find(@game.user_id)
-    if @scenario.game_id == @game.id && @user == current_user
+    if @scenario.game_id == @game.id
       @scenario
     end
   end

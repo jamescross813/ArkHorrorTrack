@@ -22,7 +22,6 @@ class Character < ApplicationRecord
   def self.exists?(params)
     if Character.find_by(id:params[:id]) 
       @char = Character.find(params[:id])
-      
     end
   end
   

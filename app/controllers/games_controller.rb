@@ -31,7 +31,6 @@ class GamesController < ApplicationController
     end
 
     def show
-       
         @game = Game.find(params[:id])
         @user = @game.user_id
         if @game.is_mine?(params) 
