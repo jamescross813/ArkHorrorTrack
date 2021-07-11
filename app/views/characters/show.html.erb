@@ -6,4 +6,4 @@
     Victory Points Used:    <%= @char.victory_points_used %><br>
 
 <%= link_to "Edit Character", edit_game_character_path(@char.game_id, @char)%>
-
+<%= link_to "User page", user_path(@char.game.user_id) %>

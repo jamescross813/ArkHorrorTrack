@@ -15,8 +15,10 @@
                 <%= link_to scen.title, game_scenario_path(@game, scen) %><br>
             </li>
         <% end %>
-
-<%= link_to "Edit Game", edit_user_game_path(@user) %><br>
-<%= link_to "Add Character", new_game_character_path(@game) %><br>
+<nav>
+<%= link_to "Edit Game", edit_user_game_path(@user) %>
+<%= link_to "Add Character", new_game_character_path(@game) %>
 <%= link_to "Add Scenario", new_game_scenario_path(@game) %>
+<%= link_to "User page", user_path(@game.user_id) %>
+</nav>
 
