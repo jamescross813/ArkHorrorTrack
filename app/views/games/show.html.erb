@@ -1,29 +1,22 @@
 <h1><%= @game.title%></h1>
 
-  
- <h2> Order Number: <%= @game.order %></h2>
-<h3>Characters:</h3>
-    <% @game.characters.each do |char| %>
-    
-    <li>
-        <%= link_to char.character_base.name, game_character_path(@game, char) %><br>
-    
-    </li>
-    <% end %>
-<h3>Scenarios:</h3>
-    <% @game.scenarios.each do |scen| %>
-        
-        <li>
-        <%= link_to scen.title, game_scenario_path(@game, scen) %><br>
-        
-        </li>
-    <% end %>
+    <h2> Order Number: <%= @game.order %></h2>
 
-
+        <h3>Characters:</h3>
+        <% @game.characters.each do |char| %>
+            <li>
+                <%= link_to char.character_base.name, game_character_path(@game, char) %><br>
+    
+            </li>
+        <% end %>
+    <h3>Scenarios:</h3>
+        <% @game.scenarios.each do |scen| %>
+            <li>
+                <%= link_to scen.title, game_scenario_path(@game, scen) %><br>
+            </li>
+        <% end %>
 
 <%= link_to "Edit Game", edit_user_game_path(@user) %><br>
-
 <%= link_to "Add Character", new_game_character_path(@game) %><br>
-
 <%= link_to "Add Scenario", new_game_scenario_path(@game) %>
 

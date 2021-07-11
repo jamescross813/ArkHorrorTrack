@@ -1,7 +1,3 @@
-<% if @game.is_mine?(session, @game.id)%>
 <h1>Edit Game</h1>
-<%= render 'form' %>
-<% else %>
-<h2>No Game Here</h2>
-<% end %>
-<%= link_to "User Homepage", user_path(@user) %><br>
+    <%= render 'form' %>
+    

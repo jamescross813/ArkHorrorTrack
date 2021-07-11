@@ -1,9 +1,8 @@
 <h1><%= @scenario.title.capitalize %></h1>
 
-<h3>Order Number: <%= @scenario.order_number %></h3>
-<h3>Complete? <%= @scenario.is_complete? %></h3>
-<h3>Run Number: <%= @scenario.run_number %></h3>
-
+    <h3>Order Number: <%= @scenario.order_number %></h3>
+    <h3>Complete? <%= @scenario.is_complete? %></h3>
+    <h3>Run Number: <%= @scenario.run_number %></h3>
 
 <%= link_to "Edit Scenario", edit_game_scenario_path(@scenario.game_id, @scenario) %><br>
 <%= link_to "Add Note", new_scenario_note_path(@scenario) %><br>
