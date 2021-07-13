@@ -12,15 +12,15 @@ class Character < ApplicationRecord
   end
 
   def self.is_mine?(params, session)
-    @char = Character.find(params[:id])
+    @char = self.find(params[:id])
     if @char.game.user_id == session[:user_id] 
       @char
     end
   end
 
   def self.exists?(params)
-    if Character.find_by(id:params[:id]) 
-      @char = Character.find(params[:id])
+    if self.find_by(id:params[:id]) 
+      @char = self.find(params[:id])
     end
   end
   
