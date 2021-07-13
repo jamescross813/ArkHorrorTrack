@@ -20,7 +20,13 @@ class UsersController < ApplicationController
     end
 
     def show
-        @user_info = User.find(params[:id])
+        if User.exists?(params) && User.is_me?(params, session)
+        @user = User.find(params[:id])
+        render :show
+        else
+            render :'application/failure'
+        end
+
     end
 
     private 

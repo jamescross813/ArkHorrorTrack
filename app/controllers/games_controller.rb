@@ -31,8 +31,8 @@ class GamesController < ApplicationController
 
     def show
         @user = session[:user_id]
-        @game = Game.exists?(params)
-        if !@game.nil? && @game.is_mine?(params, session)
+        # @game = Game.exists?(params)
+        if Game.exists?(params) && Game.is_mine?(params, session)
         @game = Game.find(params[:id])
              render :show
         else
