@@ -11,9 +11,9 @@ class CharactersController < ApplicationController
         redirect_to game_character_path(@gamecharacter.game_id, @gamecharacter)
     end
 
-    def edit
-        @gamecharacter = Character.find(params[:id])
-        if @gamecharacter.is_mine?(params) && @gamecharacter.exists?(params)
+    def edit        
+        if Character.is_mine?(params, session) && Character.exists?(params)
+            @gamecharacter = Character.find(params[:id])
             render :edit
         else
             render :'application/failure'
@@ -26,10 +26,9 @@ class CharactersController < ApplicationController
         redirect_to game_character_path(@gamecharacter.game_id, @gamecharacter)
     end
 
-    def show
-        @char = Character.exists?(params)
-       
-        if !@char.nil? && @char.is_mine?(params, session)
+    def show     
+        if Character.exists?(params) && Character.is_mine?(params, session)
+            @char = Character.find(params[:id])
             @character = CharacterBase.find(@char.character_base_id)
             render :show
         else
