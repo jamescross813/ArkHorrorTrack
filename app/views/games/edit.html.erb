@@ -1,3 +1,8 @@
 <h1>Edit Game</h1>
-    <%= render 'form' %>
+
+    <%= form_for @game do |f| %>
+
+        <%= render partial: 'form', locals: {f: f} %>
+
+    <% end %>
     
