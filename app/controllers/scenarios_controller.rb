@@ -14,8 +14,8 @@ class ScenariosController < ApplicationController
     end
 
     def edit
-        @scenario = Scenario.find(params[:id])
-        if @scenario.is_mine?(params)
+        if Scenario.exists?(params) && Scenario.is_mine?(params, session)
+            @scenario = Scenario.find(params[:id])
             render :edit
         else
             render :'application/failure'
@@ -29,9 +29,9 @@ class ScenariosController < ApplicationController
     end
 
     def show
-        @scenario = Scenario.find(params[:id])
-        @game = Game.find(params[:game_id])
-        if @scenario.is_mine?(params)
+        if Scenario.exists?(params) && Scenario.is_mine?(params, session)
+            @scenario = Scenario.find(params[:id])
+            @game = Game.find(params[:game_id])
             render :show
         else
             render :'application/failure'
@@ -39,7 +39,6 @@ class ScenariosController < ApplicationController
     end
 
     def index
-        # binding.pry
         @user = User.find(session[:user_id])
         @user.games.each do |game|
             @scenarios = game.scenarios

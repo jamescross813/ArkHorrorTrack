@@ -6,10 +6,6 @@ class Scenario < ApplicationRecord
 
   scope :incomplete, ->{where(completion_status: false)}
 
-  # def self.incomplete
-  #   where(completion_status: false)
-  #  end
-
    def is_complete?
     if self.completion_status == true
       "Complete"
@@ -18,11 +14,16 @@ class Scenario < ApplicationRecord
     end
   end
 
-  def is_mine?(params)
-    @scenario = Scenario.find(params[:id])
-    @game = Game.find(params[:game_id])
-    if @scenario.game_id == @game.id
+  def self.is_mine?(params, session)
+    @scenario = self.find(params[:id])
+    if @scenario.game.user_id == session[:user_id] 
       @scenario
+    end
+  end
+
+  def self.exists?(params)
+    if self.find_by(id:params[:id]) 
+      true
     end
   end
 
