@@ -2,7 +2,6 @@ class GamesController < ApplicationController
 
     def new
         @game = Game.new(user_id: params[:user_id])
-        @game.scenarios.build
     end
 
     def create 

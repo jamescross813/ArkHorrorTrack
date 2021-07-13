@@ -11,10 +11,9 @@ class Character < ApplicationRecord
        self.victory_points_used = 0
   end
 
-  def is_mine?(params)
+  def is_mine?(params, session)
     @character = Character.find_by(params[:id])
-    @game = Game.find(params[:game_id])
-    if @character.game_id == @game.id 
+    if @character.game.user_id == session[:user_id] 
       @character
     end
   end

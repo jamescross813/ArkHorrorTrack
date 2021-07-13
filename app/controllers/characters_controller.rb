@@ -28,7 +28,8 @@ class CharactersController < ApplicationController
 
     def show
         @char = Character.exists?(params)
-        if !@char.nil? && @char.is_mine?(params)
+       
+        if !@char.nil? && @char.is_mine?(params, session)
             @character = CharacterBase.find(@char.character_base_id)
             render :show
         else
