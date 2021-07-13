@@ -14,8 +14,8 @@ class NotesController < ApplicationController
     end
 
     def edit
-        @note = Note.find(params[:id])
-        if @note.is_mine?(params)
+        if Note.exists?(params) && Note.is_mine?(params, session)
+            @note = Note.find(params[:id])
             render :show
         else
             render :'application/failure'
@@ -29,9 +29,9 @@ class NotesController < ApplicationController
     end
 
     def show
-        @note = Note.find(params[:id])
-        @scenario = @note.scenario_id
-        if @note.is_mine?(params)
+        if Note.exists?(params) && Note.is_mine?(params, session)
+            @note = Note.find(params[:id])
+            @scenario = @note.scenario_id
             render :show
         else
             render :'application/failure'

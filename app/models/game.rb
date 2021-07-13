@@ -22,14 +22,14 @@ class Game < ApplicationRecord
     end
 
     def self.is_mine?(params, session)
-      @game = Game.find(params[:id])
+      @game = self.find(params[:id])
       if @game.user_id == session[:user_id] 
         @game
       end
     end
 
     def self.exists?(params)
-      if Game.find_by(id:params[:id]) 
+      if self.find_by(id:params[:id]) 
         @game = Game.find(params[:id])
       end
     end
