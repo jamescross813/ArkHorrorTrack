@@ -1,24 +1,26 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+ArkHorrorTracker!
 
-Things you may want to cover:
+This app will allow a user to sign up/login and track ongoing and multiple Arkham horror Card Games. 
 
-* Ruby version
+A user can create games, and list scenarios for each game. Addiitonally, a user can link chosen investigators to the game. Characters can be updated to reflect changes thatoccur throughout play. Finally, notes can be added to scenarios to keep track of important occurances. Tracking completion of the seperate scnarios allows users to track where they're at. 
 
-* System dependencies
 
-* Configuration
+To install download the repo at:
 
-* Database creation
+https://github.com/jamescross813/ArkHorrorTrack/tree/new
 
-* Database initialization
+Next:
 
-* How to run the test suite
+$ bundle install
 
-* Services (job queues, cache servers, search engines, etc.)
+$ rake db:migrate
 
-* Deployment instructions
+$ rake db:seed
 
-* ...
+Finally: 
+
+$ rails s 
+
+Navigate to the local host server
