@@ -30,7 +30,7 @@ class Game < ApplicationRecord
 
     def self.exists?(params)
       if self.find_by(id:params[:id]) 
-        @game = Game.find(params[:id])
+        @game = self.find(params[:id])
       end
     end
 
