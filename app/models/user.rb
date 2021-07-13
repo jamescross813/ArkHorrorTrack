@@ -17,7 +17,7 @@ class User < ApplicationRecord
         end
     end
 
-    def self.is_mine?(params, session)
+    def self.is_me?(params, session)
         @user = User.find(params[:id])
         if @user.id == session[:user_id] 
           @user
