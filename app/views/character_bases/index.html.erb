@@ -1,0 +1,7 @@
+<h1>Investigators</h1>
+
+<% @characters.each do |char| %>
+
+    <h3><%= link_to char.name, character_basis_path(char.id) %>: <%= char.title %></h3>
+
+<% end %>

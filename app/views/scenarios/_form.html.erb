@@ -1,0 +1,15 @@
+<%= form_for @scenario do |f| %>
+
+    <%= f.hidden_field :game_id %>
+    <%= f.label :title %>
+    <%= f.text_field :title %><br>
+    <%= f.label :order_number %>
+    <%= f.text_field :order_number %><br>
+    <%= f.label :complete? %>
+    <%= f.check_box :completion_status %><br>
+    <%= f.label :run_number %>
+    <%= f.text_field :run_number %><br>
+
+    <%= f.submit %>
+    
+<% end %>

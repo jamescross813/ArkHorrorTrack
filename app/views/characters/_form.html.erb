@@ -1,0 +1,15 @@
+<%= form_for @gamecharacter do |f| %>
+
+    <%= f.hidden_field :game_id %><br>
+
+        <%= f.label :health %>
+        <%= f.text_field :health %>
+        <%= f.label :sanity %>
+        <%= f.text_field :sanity %>
+        <%= f.label :victory_points_gained %>
+        <%= f.text_field :victory_points_gained %>
+        <%= f.label :victory_points_used %>
+        <%= f.text_field :victory_points_used %>
+
+        <%= f.submit %>
+<% end %>

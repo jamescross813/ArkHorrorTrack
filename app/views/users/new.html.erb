@@ -1,0 +1,14 @@
+<h2>Signup</h2>
+    <%= form_for(@user, url:'/signup') do |f| %>
+
+        <%= render partial: 'application/error', locals: {error_variable: @user} %>
+
+        <%= f.label :username %><br>
+        <%= f.text_field :username %><br>
+
+        <%= f.label :password %><br>
+        <%= f.password_field :password %><br>
+        
+        <%= f.submit "Signup"%>
+
+    <% end %>

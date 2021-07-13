@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ArkHorrorTrack</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+    <nav>
+     <% if !session.empty? %>%
+     <%= button_to 'Log Out', logout_path, method: :post %><br>
+     <%= link_to "User Page", user_path(session[:user_id]) %>
+     <% end %>
+      <%= link_to "All Characters", character_bases_path %>
+    </nav>
+
+    <%= yield %>
+      
+      
+        
+  </body>
+</html>
