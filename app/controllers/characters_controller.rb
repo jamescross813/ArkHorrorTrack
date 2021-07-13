@@ -13,7 +13,7 @@ class CharactersController < ApplicationController
 
     def edit
         @gamecharacter = Character.find(params[:id])
-        if @gamecharacter.is_mine?(params)
+        if @gamecharacter.is_mine?(params) && @gamecharacter.exists?(params)
             render :edit
         else
             render :'application/failure'

@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
     def new    
-        if !session.empty?
+        if !session[:user_id].nil?
             @user = User.find(session[:user_id])
         else
             @user = User.new
@@ -20,7 +20,7 @@ class UsersController < ApplicationController
     end
 
     def show
-        @user = User.find(params[:id])
+        @user_info = User.find(params[:id])
     end
 
     private 

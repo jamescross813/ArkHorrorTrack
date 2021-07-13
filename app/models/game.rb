@@ -8,7 +8,7 @@ class Game < ApplicationRecord
 
   accepts_nested_attributes_for :scenarios
   
-  scope :order_number, -> {order(order_number)}
+
 
     def scenarios_attributes=(scenarios_attributes)
       scenarios_attributes.values.each do |scenarios_attribute|
@@ -17,16 +17,20 @@ class Game < ApplicationRecord
       end
     end
 
-    # def self.order_number
-    #   self.order(:order)
-    # end
+    def self.order_number
+      self.order(:order)
+    end
 
-    def is_mine?(params)
-      # binding.pry
-      @user = User.find(params[:user_id])
+    def is_mine?(params, session)
       @game = Game.find(params[:id])
-      if @game.user_id == @user.id 
+      if @game.user_id == session[:user_id] 
         @game
+      end
+    end
+
+    def self.exists?(params)
+      if Game.find_by(id:params[:id]) 
+        @game = Game.find(params[:id])
       end
     end
 
