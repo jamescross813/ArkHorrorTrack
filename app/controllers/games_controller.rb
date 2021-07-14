@@ -15,7 +15,7 @@ class GamesController < ApplicationController
     end
 
     def edit
-        if Game.exists?(params) && Game.is_mine?(params, session)
+        if game_check
             @game = Game.find(params[:id])
             render :edit
         else
@@ -30,11 +30,21 @@ class GamesController < ApplicationController
     end
 
     def show
-        @user = session[:user_id]
-        if Game.exists?(params) && Game.is_mine?(params, session)
+        if game_check
             @game = Game.find(params[:id])
+            @user = session[:user_id]
             render :show
         else
+            render :'application/failure'
+        end
+    end
+
+    def destroy
+        if game_check
+            @game = Game.find(params[:id])
+            @game.destroy
+            redirect_to user_path(session[:user_id])
+        else 
             render :'application/failure'
         end
     end
@@ -47,5 +57,9 @@ class GamesController < ApplicationController
                                                                                                             :order_number,
                                                                                                             :completion_status,
                                                                                                             :run_number])
+    end
+
+    def game_check
+        Game.exists?(params) && Game.is_mine?(params, session)
     end
 end
