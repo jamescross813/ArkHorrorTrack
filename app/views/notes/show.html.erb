@@ -4,5 +4,7 @@
 
 <%= link_to "game page", user_game_path(@note.scenario.game.user_id, @note.scenario.game) %><br>
 <%= link_to "scenario page", game_scenario_path(@note.scenario.game, @note.scenario) %><br>
-
+<%= link_to "Delete Note", scenario_note_path(@note.scenario, @note),
+                  method: :delete,
+                  data: { confirm: "Are you sure?" } %>
 

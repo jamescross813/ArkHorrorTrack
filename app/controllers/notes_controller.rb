@@ -43,6 +43,16 @@ class NotesController < ApplicationController
         @notes = @scenario.notes
     end
 
+    def destroy
+        if Note.exists?(params) && Note.is_mine?(params, session)
+            @note = Note.find(params[:id])
+            @note.destroy
+            redirect_to game_scenario_path(@note.scenario.game, @note.scenario)
+        else 
+            render :'application/failure'
+        end
+    end
+
     private
 
     def note_params
