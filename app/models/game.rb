@@ -1,8 +1,8 @@
 class Game < ApplicationRecord
   belongs_to :user
-  has_many :characters
+  has_many :characters, :dependent => :destroy
   has_many :character_bases, through: :characters
-  has_many :scenarios
+  has_many :scenarios, :dependent => :destroy
 
   validates :title, presence:true
 

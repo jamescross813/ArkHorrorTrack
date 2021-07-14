@@ -39,15 +39,6 @@ class GamesController < ApplicationController
         end
     end
 
-    def destroy
-        if Game.exists?(params) && Game.is_mine?(params, session)
-            @game = Game.find(params[:id])
-            @game.destroy
-            redirect_to user_path(session[:user_id])
-        else 
-            render :'application/failure'
-        end
-    end
 
     private
 
