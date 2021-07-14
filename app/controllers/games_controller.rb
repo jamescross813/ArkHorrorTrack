@@ -39,6 +39,18 @@ class GamesController < ApplicationController
         end
     end
 
+    def destroy
+        if Game.exists?(params) && Game.is_mine?(params, session)
+            @game = Game.find(params[:id])
+            @game.destroy
+            redirect_to user_path(session[:user_id])
+        else 
+            render :'application/failure'
+        end
+    end
+
+    private
+
     def game_params
         params.require(:game).permit(:title, :order, :user_id, :scenario_ids => [], :scenarios_attributes=> [:title,
                                                                                                             :order_number,
