@@ -7,3 +7,6 @@
 
 <%= link_to "Edit Character", edit_game_character_path(@char.game_id, @char)%>
 <%= link_to "User page", user_path(@char.game.user_id) %>
+<%= link_to "Delete Character", game_character_path(@char.game_id, @char),
+                  method: :delete,
+                  data: { confirm: "Are you sure?" } %>

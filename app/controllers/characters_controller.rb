@@ -36,6 +36,16 @@ class CharactersController < ApplicationController
         end
     end
 
+    def destroy
+        if Character.exists?(params) && Character.is_mine?(params, session)
+            @character = Character.find(params[:id])
+            @character.destroy
+            redirect_to game_path(@character.game_id)
+        else 
+            render :'application/failure'
+        end
+    end
+
     private 
 
     def character_params
