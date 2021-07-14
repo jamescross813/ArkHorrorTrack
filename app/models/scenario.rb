@@ -1,6 +1,6 @@
 class Scenario < ApplicationRecord
   belongs_to :game
-  has_many :notes
+  has_many :notes, :dependent => :destroy
 
   validates :title, presence: true
 

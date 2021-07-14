@@ -45,6 +45,16 @@ class ScenariosController < ApplicationController
         end
     end
 
+    def destroy
+        if Scenario.exists?(params) && Scenario.is_mine?(params, session)
+            @scenario = Scenario.find(params[:id])
+            @scenario.destroy
+            redirect_to game_path(@scenario.game_id)
+        else 
+            render :'application/failure'
+        end
+    end
+
     private 
 
     def scenario_params

@@ -12,5 +12,8 @@
     <%= link_to "Edit Scenario", edit_game_scenario_path(@scenario.game_id, @scenario) %>
     <%= link_to "Add Note", new_scenario_note_path(@scenario) %>
     <%= link_to "Incomplete Scenarios", game_scenarios_path(@scenario.game_id, @scenario)%>
+    <%= link_to "Delete Scenario", game_scenario_path(@scenario.game_id, @scenario),
+                  method: :delete,
+                  data: { confirm: "Are you sure?" } %>
 </nav>
 
