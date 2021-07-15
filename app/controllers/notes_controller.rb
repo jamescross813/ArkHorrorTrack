@@ -14,7 +14,7 @@ class NotesController < ApplicationController
     end
 
     def edit
-        if Note.exists?(params) && Note.is_mine?(params, session)
+        if note_check
             @note = Note.find(params[:id])
             render :show
         else
@@ -29,7 +29,7 @@ class NotesController < ApplicationController
     end
 
     def show
-        if Note.exists?(params) && Note.is_mine?(params, session)
+        if note_check
             @note = Note.find(params[:id])
             @scenario = @note.scenario_id
             render :show
@@ -44,7 +44,7 @@ class NotesController < ApplicationController
     end
 
     def destroy
-        if Note.exists?(params) && Note.is_mine?(params, session)
+        if note_check
             @note = Note.find(params[:id])
             @note.destroy
             redirect_to game_scenario_path(@note.scenario.game, @note.scenario)
@@ -57,5 +57,9 @@ class NotesController < ApplicationController
 
     def note_params
         params.require(:note).permit(:title, :content, :scenario_id)
+    end
+
+    def note_check
+        Note.exists?(params) && Note.is_mine?(params, session)
     end
 end
