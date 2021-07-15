@@ -14,7 +14,7 @@ class ScenariosController < ApplicationController
     end
 
     def edit
-        if Scenario.exists?(params) && Scenario.is_mine?(params, session)
+        if scenario_check
             @scenario = Scenario.find(params[:id])
             render :edit
         else
@@ -29,7 +29,7 @@ class ScenariosController < ApplicationController
     end
 
     def show
-        if Scenario.exists?(params) && Scenario.is_mine?(params, session)
+        if scenario_check
             @scenario = Scenario.find(params[:id])
             @game = Game.find(params[:game_id])
             render :show
@@ -46,7 +46,7 @@ class ScenariosController < ApplicationController
     end
 
     def destroy
-        if Scenario.exists?(params) && Scenario.is_mine?(params, session)
+        if scenario_check
             @scenario = Scenario.find(params[:id])
             @scenario.destroy
             redirect_to game_path(@scenario.game_id)
@@ -59,5 +59,9 @@ class ScenariosController < ApplicationController
 
     def scenario_params
         params.require(:scenario).permit(:title, :order_number, :completion_status, :game_id, :run_number)
+    end
+
+    def scenario_check
+        Scenario.exists?(params) && Scenario.is_mine?(params, session)
     end
 end
