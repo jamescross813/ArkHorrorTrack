@@ -12,7 +12,7 @@ class CharactersController < ApplicationController
     end
 
     def edit        
-        if Character.is_mine?(params, session) && Character.exists?(params)
+        if character_check
             @gamecharacter = Character.find(params[:id])
             render :edit
         else
@@ -27,7 +27,7 @@ class CharactersController < ApplicationController
     end
 
     def show     
-        if Character.exists?(params) && Character.is_mine?(params, session)
+        if character_check
             @char = Character.find(params[:id])
             @character = CharacterBase.find(@char.character_base_id)
             render :show
@@ -37,7 +37,7 @@ class CharactersController < ApplicationController
     end
 
     def destroy
-        if Character.exists?(params) && Character.is_mine?(params, session)
+        if character_check
             @character = Character.find(params[:id])
             @character.destroy
             redirect_to game_path(@character.game_id)
@@ -50,5 +50,9 @@ class CharactersController < ApplicationController
 
     def character_params
         params.require(:character).permit(:character_base_id, :game_id, :victory_points_gained, :victory_points_used, :health, :sanity)
+    end
+
+    def character_check
+        Character.exists?(params) && Character.is_mine?(params, session)
     end
 end
