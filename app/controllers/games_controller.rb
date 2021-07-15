@@ -6,8 +6,9 @@ class GamesController < ApplicationController
 
     def create 
         @game = Game.new(game_params)
+        
         if @game.valid?
-            @game.save
+           @game.save
            redirect_to user_game_path(@game.user_id, @game)
         else 
             render :new
@@ -30,7 +31,7 @@ class GamesController < ApplicationController
     end
 
     def show
-        if game_check
+        if Game.exists?(params) && Game.is_mine?(params, session)
             @game = Game.find(params[:id])
             @user = session[:user_id]
             render :show
