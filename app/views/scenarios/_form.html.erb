@@ -1,6 +1,5 @@
-<%= form_for @scenario do |f| %>
+<%= form_for @scenario, url: game_scenarios_path(@game) do |f| %>
 
-    <%= f.hidden_field :game_id %>
     <%= f.label :title %>
     <%= f.text_field :title %><br>
     <%= f.label :order_number %>

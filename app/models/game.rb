@@ -8,7 +8,7 @@ class Game < ApplicationRecord
 
   accepts_nested_attributes_for :scenarios
   
-# scope :alphabetical, -> {order(title)}
+scope :alphabetical, -> {order(title)}
 
     def scenarios_attributes=(scenarios_attributes)
       scenarios_attributes.values.each do |scenarios_attribute|

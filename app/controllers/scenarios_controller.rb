@@ -1,11 +1,15 @@
 class ScenariosController < ApplicationController
 
     def new
+        @game = Game.find(params[:game_id])
         @scenario = Scenario.new(game_id: params[:game_id])
     end
 
     def create 
-        @scenario = Scenario.new(scenario_params)
+        # binding.pry
+        @game = Game.find(params[:game_id])
+        @scenario =  @game.scenarios.build(scenario_params)
+        # @scenario = Scenario.new
         if @scenario.save
             redirect_to game_scenario_path(@scenario.game_id, @scenario)
         else
